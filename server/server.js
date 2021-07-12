@@ -1,13 +1,7 @@
 
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-var dataPath = path.join(__dirname, '../data.json')
-
-fs.writeFile('chirps.json', function(err, data) {
-if(err) return console.log(err);
-console.log(data.toString());
-});
 
 let chirps = [{
     username: "bob",
@@ -31,3 +25,12 @@ chirpText: "aloha"
 }]
 
 
+fs.writeFile('chirps.json', JSON.stringify(chirps), function (err) {
+if (err) throw err;
+console.log('saved');
+});
+
+fs.readFileSync('chirps.json', function (err, data) {
+    if (err) throw err;
+    console.log(JSON.parse(data));
+})
