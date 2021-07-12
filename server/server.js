@@ -30,7 +30,7 @@ if (err) throw err;
 console.log('saved');
 });
 
-fs.readFileSync('chirps.json', function (err, data) {
+fs.readFile('./chirps.json', function (err, data) {
     if (err) throw err;
     console.log(JSON.parse(data));
 })
