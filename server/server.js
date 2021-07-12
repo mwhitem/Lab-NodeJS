@@ -2,6 +2,12 @@
 var path = require('path');
 var fs = require('fs');
 
+var dataPath = path.join(__dirname, '../data.json')
+
+fs.writeFile('chirps.json', function(err, data) {
+if(err) return console.log(err);
+console.log(data.toString());
+});
 
 let chirps = [{
     username: "bob",
@@ -25,9 +31,3 @@ chirpText: "aloha"
 }]
 
 
-// var dataPath = path.join(__dirname, '../data.json')
-
-// fs.readFile(path.join(__dirname, 'data.json' ), function(err, data) {
-// if(err) return console.log(err);
-// console.log(data.toString());
-// });
